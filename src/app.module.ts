@@ -1,9 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProdutoresModule } from './produtores/produtores.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProdutorModule } from './produtor/produtor.module';
+import { ProdutoModule } from './produto/produto.module';
+import { AvaliacaoModule } from './avaliacao/avaliacao.module';
+import { ClienteModule } from './cliente/cliente.module';
+import { PedidoModule } from './pedido/pedido.module';
+import { CarrinhoModule } from './carrinho/carrinho.module';
+import { ItemCarrinhoModule } from './item-carrinho/item-carrinho.module';
+import { ItemCarrinhoService } from './item-carinho/services/item-carrinho/item-carrinho.service';
 
 @Module({
   imports: [
@@ -22,9 +29,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       }),
       inject: [ConfigService]
     }),
-    ProdutoresModule
+    ProdutorModule,
+    ProdutoModule,
+    AvaliacaoModule,
+    ClienteModule,
+    PedidoModule,
+    CarrinhoModule,
+    ItemCarrinhoModule,
+    
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ItemCarrinhoService],
 })
 export class AppModule {}
