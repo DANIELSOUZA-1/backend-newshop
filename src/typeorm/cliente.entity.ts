@@ -34,6 +34,12 @@ export class Cliente {
     nullable: false,
     default: '',
   })
+  password: string;
+
+  @Column({
+    nullable: false,
+    default: '',
+  })
   endereco: string;
 
   // Referenciar Pedidos[]

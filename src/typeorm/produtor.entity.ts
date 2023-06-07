@@ -33,6 +33,13 @@ export class Produtor {
   })
   email: string;
 
+  
+  @Column({
+    nullable: false,
+    default: '',
+  })
+  password: string;
+
   @Column({
     nullable: false,
     default: '',
