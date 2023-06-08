@@ -5,7 +5,9 @@ import {
   Param,
   ParseIntPipe,
   Patch,
+  Delete,
   Post,
+  Put,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -23,15 +25,25 @@ export class ClienteController {
     return this._clienteService.getClientes()
   }
 
-  @Post('create')
+  @Get('/:id')
+  getCliente(@Param('id') id: number) {
+    return this._clienteService.getCliente(id)
+  }
+  
+  @Put('/:id')
+  updateCliente(@Param('id') id: number, @Body() body: UpdateClienteDto) {
+    return this._clienteService.updateCliente(id, body)
+  }
+
+  @Post()
   @UsePipes(ValidationPipe)
   createCliente(@Body() body: CreateClienteDto) {
     return this._clienteService.createCliente(body)
   }
 
-  @Patch('/:id')
-  updateCliente(@Param('id') id: number, @Body() body: UpdateClienteDto) {
-    return this._clienteService.updateClient(id, body)
+  @Delete('/:id')
+  removeCliente(@Param('id') id: number) {
+    return this._clienteService.deleteCliente(id)
   }
 
 }

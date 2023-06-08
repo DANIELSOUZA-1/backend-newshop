@@ -1,15 +1,7 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator";
+import { CreateClienteDto } from "./create-cliente.dtos";
+import { PartialType } from "@nestjs/mapped-types";
 
-export class UpdateClienteDto {
-  @IsString()
-  nome: string;
 
-  @IsString()
-  telefone: string;
-
-  @IsString()
-  password: string; // não sei se é seguro permitir mudança de senha (duvida)
-
-  @IsString()
-  endereco: string;
+export class UpdateClienteDto extends PartialType(CreateClienteDto)  {
 }

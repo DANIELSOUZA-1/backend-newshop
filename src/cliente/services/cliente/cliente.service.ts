@@ -12,17 +12,23 @@ export class ClienteService {
     return this._clienteRepository.find()
   }
 
+  getCliente(id) {
+    return this._clienteRepository.findOne({
+      where: {id: id}
+    })
+  }
+
   createCliente(createClienteDto: CreateClienteDto) {
     const newCliente = this._clienteRepository.create(createClienteDto)
     return this._clienteRepository.save(newCliente)
   }
 
-  findClienteById(id) {
-    return this._clienteRepository.findOne(id)
+  updateCliente(id, body) {
+    return this._clienteRepository.update(id, body)
   }
 
-  updateClient(id, body) {
-    return this._clienteRepository.update(id, body)
+  deleteCliente(id) {
+    return this._clienteRepository.delete(id)
   }
 
 }
