@@ -25,8 +25,8 @@ export class ClienteController {
 
   @Post('create')
   @UsePipes(ValidationPipe)
-  createCliente(@Body() createClienteDto: CreateClienteDto) {
-    return this._clienteService.createCliente(createClienteDto)
+  createCliente(@Body() body: CreateClienteDto) {
+    return this._clienteService.createCliente(body)
   }
 
   @Patch('/:id')
