@@ -30,5 +30,4 @@ export class ClienteService {
   deleteCliente(id) {
     return this._clienteRepository.delete(id)
   }
-
 }

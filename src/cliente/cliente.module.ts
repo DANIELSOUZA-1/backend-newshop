@@ -9,4 +9,5 @@ import { Cliente } from 'src/typeorm/cliente.entity';
   controllers: [ClienteController],
   providers: [ClienteService]
 })
+
 export class ClienteModule {}

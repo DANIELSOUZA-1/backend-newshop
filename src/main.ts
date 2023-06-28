@@ -12,7 +12,7 @@ async function bootstrap() {
       skipMissingProperties: true,
     }),
   );
-
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();
