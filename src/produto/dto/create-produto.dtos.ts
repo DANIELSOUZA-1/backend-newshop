@@ -1,4 +1,6 @@
-import { IsEmail, IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
+import { Type } from "class-transformer";
+import { IsEmail, IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min, MinLength } from "class-validator";
+import { Decimal128 } from "typeorm";
 
 export class CreateProdutoDto {
   @IsNotEmpty()
@@ -7,11 +9,15 @@ export class CreateProdutoDto {
   nome: string
 
   @IsNotEmpty()
-  @MaxLength(30)
+  @IsNumber()
+  @Min(0)
+  @Max(999999999)
   estoque: number
 
   @IsNotEmpty()
-  @MaxLength(6)
+  @IsNumber()
+  @Min(0)
+  @Max(999999999)
   preco: number
 
   @IsNotEmpty()
@@ -19,7 +25,6 @@ export class CreateProdutoDto {
   @MaxLength(15)
   categoria: string;
 
-  @MinLength(8)
   @MaxLength(150)
   descricao: string;
 

@@ -61,4 +61,4 @@ export class Produtor {
   @OneToMany(() => Produto, produto => produto.produtor)
   produtos: Produto[];
   
-}
+} 

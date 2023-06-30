@@ -28,15 +28,19 @@ export class Produto {
   })
   categoria: string;
 
-  @Column({
-    nullable: false,
+  @Column('decimal',{
     default: 0,
+    nullable: false,
+    precision: 6, 
+    scale: 2,
   })
   preco: number;
 
-  @Column({
-    nullable: false,
+  @Column('decimal',{
     default: 0,
+    nullable: false,
+    precision: 6, 
+    scale: 2,
   })
   estoque: number;
 
