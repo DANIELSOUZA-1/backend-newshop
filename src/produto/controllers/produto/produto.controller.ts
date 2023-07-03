@@ -30,7 +30,7 @@ export class ProdutoController {
     return this._produtoService.getProduto(id)
   }
   
-  @Put('/:id')
+  @Patch('/:id')
   updateProduto(@Param('id') id: number, @Body() body: UpdateProdutoDto) {
     return this._produtoService.updateProduto(id, body)
   }

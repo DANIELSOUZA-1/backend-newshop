@@ -22,7 +22,7 @@ export class CreateProdutoDto {
 
   @IsNotEmpty()
   @MinLength(4)
-  @MaxLength(15)
+  @MaxLength(100)
   categoria: string;
 
   @MaxLength(150)

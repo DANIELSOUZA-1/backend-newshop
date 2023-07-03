@@ -28,7 +28,14 @@ export class ProdutoService {
     return this._produtoRepository.update(id, body)
   }
 
-  deleteProduto(id) {
-    return this._produtoRepository.delete(id)
+  async deleteProduto(id) {
+    let itemDeleted = await this._produtoRepository.delete(id)
+
+    if (itemDeleted.affected != 0) {
+      return 1
+    } else {
+      return 0
+
+    }
   }
 }

@@ -31,7 +31,7 @@ export class Produto {
   @Column('decimal',{
     default: 0,
     nullable: false,
-    precision: 6, 
+    precision: 11, 
     scale: 2,
   })
   preco: number;
@@ -39,7 +39,7 @@ export class Produto {
   @Column('decimal',{
     default: 0,
     nullable: false,
-    precision: 6, 
+    precision: 9, 
     scale: 2,
   })
   estoque: number;
