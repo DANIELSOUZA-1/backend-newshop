@@ -55,4 +55,5 @@ export class Produto {
 
   @ManyToOne(() => Produtor, produtor => produtor.produtos)
   produtor: Produtor;
+  
 }

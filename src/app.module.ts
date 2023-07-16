@@ -40,6 +40,6 @@ import entities from './typeorm';
     
   ],
   controllers: [AppController],
-  providers: [AppService, ItemCarrinhoService],
+  providers: [AppService],
 })
 export class AppModule {}

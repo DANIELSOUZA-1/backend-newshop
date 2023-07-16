@@ -1,8 +1,13 @@
 import { Type } from "class-transformer";
 import { IsEmail, IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min, MinLength } from "class-validator";
+import { Carrinho } from "src/typeorm/carrinho.entity";
+import { Produto } from "src/typeorm/produto.entity";
 import { Decimal128 } from "typeorm";
 
-export class CreateProdutoDto {
+export class CreateItemCarrinhoDto {
+  @IsNotEmpty()
+  carrinho: Carrinho
+  
   @IsNotEmpty()
   @MinLength(4)
   @MaxLength(35)
@@ -12,7 +17,7 @@ export class CreateProdutoDto {
   @IsNumber()
   @Min(0)
   @Max(999999999)
-  estoque: number
+  quantidade: number
 
   @IsNotEmpty()
   @IsNumber()
@@ -21,15 +26,7 @@ export class CreateProdutoDto {
   preco: number
 
   @IsNotEmpty()
-  @MinLength(4)
-  @MaxLength(100)
-  categoria: string;
-
-  @MaxLength(300)
-  descricao: string;
-
-  @MinLength(8)
-  @MaxLength(150)
-  imagens: string;
+  @MaxLength(35)
+  produtoId: string
 
 }

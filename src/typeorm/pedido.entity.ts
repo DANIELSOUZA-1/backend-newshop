@@ -12,7 +12,7 @@ export class Pedido {
   })
   id: number;
 
-  // Referenciar itemCarrinho[]
+  // Referenciar itemCarrinho[]  N
   @ManyToOne(() => Cliente, cliente => cliente.pedidos)
   cliente: Cliente;
 
