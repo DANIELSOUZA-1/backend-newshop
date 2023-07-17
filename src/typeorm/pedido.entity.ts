@@ -30,11 +30,19 @@ export class Pedido {
   })
   status: string;
 
-  @Column({
-    nullable: false,
+  @Column('decimal',{
     default: 0,
+    nullable: false,
+    precision: 11, 
+    scale: 2,
   })
   total: number;
+
+  @Column('integer',{
+    default: 0,
+    nullable: false,
+  })
+  codigoRastreio: number;
 
   @Column({
     nullable: false,

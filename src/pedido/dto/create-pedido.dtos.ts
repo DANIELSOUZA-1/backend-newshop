@@ -28,4 +28,10 @@ export class CreatePedidoDto {
   @Max(999999999)
   total: number
 
+  @IsNotEmpty()
+  @IsNumber()
+  @Min(0)
+  @Max(999999999)
+  codigoRastreio: number
+
 }
