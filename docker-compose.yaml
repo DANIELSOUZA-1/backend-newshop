@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  backend:
+    build: ./
+    container_name: newshop_api
+    environment:
+      - PORT=3000
+      - DB_HOST='newshop.cieo2x9hfwmj.us-east-1.rds.amazonaws.com'
+      - DB_PORT=5432
+      - DB_USERNAME='newshop'
+      - DB_PASSWORD='fifth123'
+      - DB_NAME='newshop'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+    networks:
+      - nestjs_network
+
+  database:
+    image: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - nestjs_network
+
+networks:
+  nestjs_network:
+    driver: bridge
